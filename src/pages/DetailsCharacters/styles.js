@@ -18,7 +18,6 @@ export const WrapperComics = styled.footer`
 export const MoreComics = styled.div`
   display: flex;
   flex-direction: column;
-  /* background-color:red; */
   margin: 1.25rem auto;
   h1 {
     color: #fff;
@@ -28,7 +27,6 @@ export const MoreComics = styled.div`
 export const CardComics = styled.div`
   width: 100%;
   max-width: 200px;
-  /* height: 300px; */
 
   display: flex;
   flex-direction: column;

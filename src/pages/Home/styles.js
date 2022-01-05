@@ -29,20 +29,9 @@ export const WrapperCard = styled.div`
   }
 `;
 
-export const ShowMore = styled.button`
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 1.2rem;
 
+export const WrapperDirection = styled.section`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  transition: all 0.2s;
-  svg {
-    font-size: 1.25rem;
-  }
-  &:hover {
-    filter: brightness(0.9);
-  }
+  justify-content: center;
 `;

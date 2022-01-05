@@ -1,11 +1,13 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+
 import { Header } from "../../components/Header";
-import { InfoDescription } from "../../components/InfoDescription";
+import { Link, useParams } from "react-router-dom";
 import { sendRequest } from "../../services/sendRequest";
-import { Container, Content, ImageBook, Wrapper } from "../DetailsComics/style";
+
 import { CardComics, WrapperComics ,MoreComics} from "./styles";
+import { InfoDescription } from "../../components/InfoDescription";
+import { Container, Content, ImageBook, Wrapper } from "../DetailsComics/style";
 
 export function DetailsCharacters() {
   const { id } = useParams();

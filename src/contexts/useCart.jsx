@@ -22,19 +22,10 @@ export function CartProvider({ children }) {
         (product) => product[0].id === productId
       ); //verifica se o produto tem o Id igual
 
-      const result = await sendRequest.getDetailsComics(productId); //faz a requisição do estoque de produtos.
+      await sendRequest.getDetailsComics(productId); //faz a requisição do estoque de produtos.
 
-      
-
-      // console.log("stock: ", result);
-      const stockAmount = result.amount; //quantidade que tem no estoque
       const currentAmount = productExists ? productExists.amount : 0; //produto atual no carrinho
       const amount = currentAmount + 1; //quantidade desejada
-
-      if (amount > stockAmount) {
-        toast.error("Quantidade solicitada fora de estoque");
-        return;
-      } //verifica a quantidade no estoque
 
       if (productExists) {
         productExists.amount = amount; //atualiza produto

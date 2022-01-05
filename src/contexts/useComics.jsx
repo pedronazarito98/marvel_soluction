@@ -12,6 +12,7 @@ export const GetComicsContext = createContext();
 export function GetComicsProvider({ children }) {
   const [comics, setComics] = useState([]);
   const [characters, setCharacters] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function getComics() {
@@ -39,20 +40,24 @@ export function GetComicsProvider({ children }) {
   }, []);
 
   const handleMore = useCallback(async () => {
+    setIsLoading(true);
     try {
       const offset = comics.length;
       const results = await sendRequest.getComics(offset);
       setComics([...comics, ...results]);
+      setIsLoading(false);
     } catch (error) {
       return error;
     }
   }, [comics]);
 
   const handleMoreCharacters = useCallback(async () => {
+    setIsLoading(true);
     try {
       const offset = characters.length;
       const results = await sendRequest.getCharacters(offset);
       setCharacters([...characters, ...results]);
+      setIsLoading(false);
     } catch (error) {
       return error;
     }
@@ -60,7 +65,13 @@ export function GetComicsProvider({ children }) {
 
   return (
     <GetComicsContext.Provider
-      value={{ comics, handleMore, handleMoreCharacters, characters }}
+      value={{
+        comics,
+        handleMore,
+        handleMoreCharacters,
+        characters,
+        isLoading,
+      }}
     >
       {children}
     </GetComicsContext.Provider>

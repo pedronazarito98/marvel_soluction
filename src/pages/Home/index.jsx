@@ -1,16 +1,16 @@
 import { MdExpandMore } from "react-icons/md";
 import { useCart } from "../../contexts/useCart";
 
-import { Container, ShowMore, WrapperCard } from "./styles";
+import { Container, ShowMore, WrapperCard, WrapperDirection } from "./styles";
 import { CardHq } from "../../components/Card/Hq";
 import { useComics } from "../../contexts/useComics";
 import { CardHome } from "../../components/Card/Home/index";
 import { useParams } from "react-router-dom";
+import { ButtonShowMore } from "../../components/ShowMore";
 
 export function Home() {
-  const { comics, handleMore } = useComics();
+  const { comics, handleMore, isLoading } = useComics();
   const { addProduct, cart } = useCart();
-  const { id } = useParams();
 
   const cartItemsAmount = cart.reduce((sumAmount, item) => {
     const newSumAmount = { ...sumAmount };
@@ -18,7 +18,6 @@ export function Home() {
 
     return newSumAmount;
   }, {});
-  console.log("cartItemsAmount", cartItemsAmount);
 
   function handleAddProduct(id) {
     addProduct(id);
@@ -27,30 +26,18 @@ export function Home() {
   return (
     <>
       <Container>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <WrapperDirection>
           <CardHome
             title="Comics"
-            description="Encontre suas HQ's favorita"
+            description="Encontre suas HQ's favoritas"
             redirectUrl="/"
           />
           <CardHome
             title="Personagens"
-            description="Encontre suas HQ's escolhidas"
+            description="Encontre seus personagens favoritos"
             redirectUrl="characters"
           />
-
-          <CardHome
-            title="Carrinho"
-            description="Encontre suas HQ's escolhidas"
-            redirectUrl="cart"
-          />
-        </div>
+        </WrapperDirection>
         <WrapperCard>
           {comics.map((item) => {
             return (
@@ -70,10 +57,7 @@ export function Home() {
             );
           })}
         </WrapperCard>
-        <ShowMore onClick={handleMore}>
-          {" "}
-          Veja mais <MdExpandMore />
-        </ShowMore>
+        <ButtonShowMore isLoading={isLoading} onClick={handleMore} />
       </Container>
     </>
   );

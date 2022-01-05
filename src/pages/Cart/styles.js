@@ -32,6 +32,7 @@ export const Container = styled.div`
 export const ProductTable = styled.table`
   width: 100%;
   overflow-x: auto;
+
   thead th {
     color: #999;
     text-align: left;
@@ -94,6 +95,11 @@ export const ProductTable = styled.table`
         cursor: not-allowed;
       }
     }
+  }
+
+  @media (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 

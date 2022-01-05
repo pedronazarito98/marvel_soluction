@@ -19,7 +19,6 @@ export function Cart() {
   //   sumTotal acumula e soma product.price / product.amount;
   const total = FormatCurrency(
     cart.reduce((sumTotal, product) => {
-      console.log("product", product);
       return sumTotal + product[0].price * product.amount;
     }, 0)
   );

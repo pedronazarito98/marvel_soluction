@@ -21,7 +21,7 @@ export function CardHq({
       <Link to={`/${typeLink}/` + link}>
         <img
           src={`${thumbnailPath}.${thumbnailExtension}`}
-          alt=""
+          alt={title}
           loading="eager"
         />
       </Link>
