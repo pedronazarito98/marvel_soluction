@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const WrapperDescriptions = styled.div`
-  margin: 20px 0;
+  margin: 1.25rem 0;
 
   h3 {
     color: #fff;
@@ -9,19 +9,26 @@ export const WrapperDescriptions = styled.div`
 `;
 
 export const TitleComics = styled.h1`
-  margin: 10px 0;
+  margin: 0.625rem 0;
   color: #fff;
   font-weight: bold;
 `;
+export const PriceComics = styled.h3`
+  color: #fff;
 
-export const DatePublication = styled.h2`
+  span {
+    color: #B8B3B3;
+  }
+`;
+
+export const DatePublication = styled(PriceComics)`
   font-size: 1.2rem;
   font-weight: 500;
-  color: #b8b3b3;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 `;
+
 
 export const TextDescriptions = styled.p`
   color: #858585;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 `;

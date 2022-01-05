@@ -6,36 +6,36 @@ export const GoCorner = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   overflow: hidden;
   top: 0;
   right: 0;
   background-color: #00838d;
-  border-radius: 0 4px 0 32px;
+  border-radius: 0 0.25rem 0 2rem;
 `;
 export const GoArrow = styled.div`
-  margin-top: -4px;
-  margin-right: -4px;
+  margin-top: -0.25rem;
+  margin-right: -0.25rem;
   color: white;
 `;
 
 export const TitleCard = styled.h3`
   color: #fff;
-  font-size: 17px;
-  line-height: 24px;
+  font-size: 1.063rem;
+  line-height: 1.5rem;
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 `;
 
 export const DescriptionCard = styled.p`
-  font-size: 17px;
+  font-size: 1.063rem;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.25rem;
   color: #e6e9e9;
 
   &.small {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 `;
 
@@ -43,21 +43,23 @@ export const Card = styled(Link)`
   display: block;
   top: 0px;
   position: relative;
-  max-width: 262px;
+  max-width: 16.375rem;
   background-color: #151515;
-  border-radius: 4px;
-  padding: 32px 24px;
-  margin: 12px;
+  border-radius: 0.25rem;
+  padding: 2rem 1.5rem;
+  margin: 0.75rem;
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
-  border: 1px solid #f2f8f9;
+  border: 0.063rem solid #f2f8f9;
+
+  transition: background-color 1s;
 
   &:hover {
     transition: all 0.2s ease-out;
-    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
-    top: -4px;
-    border: 1px solid #cccccc;
+    box-shadow: 0rem 0.25rem 0.5rem rgba(38, 38, 38, 0.2);
+    top: -0.25rem;
+    border: 0.063rem solid #cccccc;
     background-color: white;
 
     ${TitleCard},${DescriptionCard} {
@@ -69,12 +71,12 @@ export const Card = styled(Link)`
     content: "";
     position: absolute;
     z-index: -1;
-    top: -16px;
-    right: -16px;
+    top: -1rem;
+    right: -1rem;
     background: #00838d;
-    height: 32px;
-    width: 32px;
-    border-radius: 32px;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 2rem;
     transform: scale(2);
     transform-origin: 50% 50%;
     transition: transform 0.15s ease-out;

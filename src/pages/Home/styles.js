@@ -1,15 +1,24 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  max-width: 1200px;
+export const Container = styled.main`
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 30px 0;
+`;
+
+export const WrapperCard = styled.div`
+  /* max-width: 75rem; */
+  width: 100%;
+  display: flex;
+  /* flex-direction: row; */
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 5px auto;
-  padding: 15px;
-
-  background: red;
+  margin: 0.313rem auto;
+  padding: 0.938rem;
 
   ul {
     display: flex;
@@ -31,7 +40,7 @@ export const ShowMore = styled.button`
 
   transition: all 0.2s;
   svg {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   &:hover {
     filter: brightness(0.9);

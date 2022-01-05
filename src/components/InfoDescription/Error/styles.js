@@ -7,8 +7,9 @@ const FadeInAnimation = keyframes`
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 800px;
+  max-width: 50rem;
   padding: 10px;
+  margin: 0 auto;
 
   display: flex;
   align-items: center;
@@ -21,5 +22,9 @@ export const Container = styled.div`
   span {
     color: #858585;
     font-size: 1.2rem;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 22.813rem;
   }
 `;

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Nav = styled.header`
@@ -7,11 +8,27 @@ export const Nav = styled.header`
 
   display: flex;
   align-items: center;
-  justify-content: center;
-  a {
-    transition: all 1s ease;
-    &:hover {
-      transform: scale(0.9);
+  justify-content: space-evenly;
+`;
+export const LinkCart = styled(Link)`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  div {
+    text-align: right;
+    margin-right: 0.625rem;
+
+    strong {
+      display: block;
+      color: #fff;
+    }
+
+    span {
+      margin-right: 0.625rem;
+      font-size: 0.75rem;
+      color: #999;
     }
   }
 `;

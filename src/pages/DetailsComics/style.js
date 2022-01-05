@@ -7,26 +7,30 @@ export const Container = styled.main`
 
 export const Wrapper = styled.section`
   width: 100%;
-  max-width: 900px;
+  max-width: 56.25rem;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1.25rem;
 
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export const ImageBook = styled.img`
   width: 100%;
-  max-width: 300px;
-  height: 400px;
-  border-radius: 10px;
+  max-width: 20rem;
+  height: 28.75rem;
+  border-radius: 0.625rem;
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 500px;
+  max-width: 31.25rem;
 `;
