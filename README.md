@@ -1,4 +1,4 @@
-<div display:'flex'>
+<div display='flex'>
 <img src="./src/assets/readme/HomePAGE.png" alt="Home" width="40%">
 <img src="./src/assets/readme/comicsPage.png" alt="Comics Page" width="40%">
 </div>
