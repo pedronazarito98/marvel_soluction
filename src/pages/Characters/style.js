@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerCharacters = styled.main`
-  margin: 0 auto;
+  margin: 30px auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,6 @@ export const ContainerCharacters = styled.main`
 
 export const Card = styled.div`
   background: #f1f1f1;
-  /* height: 25rem; */
   width: 100%;
   max-width: 15.625rem;
   margin: 0.625rem;

@@ -3,7 +3,7 @@ import {
   MdDelete,
   MdRemoveCircleOutline,
 } from "react-icons/md";
-import { useCart } from "../../contexts/useCart";
+import { useCart } from "../../hooks/useCart";
 import { FormatCurrency } from "../../utils/format";
 import { Container, ProductTable, Total } from "./styles";
 
@@ -19,7 +19,6 @@ export function Cart() {
   //   sumTotal acumula e soma product.price / product.amount;
   const total = FormatCurrency(
     cart.reduce((sumTotal, product) => {
-      console.log("product", product);
       return sumTotal + product[0].price * product.amount;
     }, 0)
   );
@@ -41,8 +40,8 @@ export function Cart() {
   }
 
   //limpa o carrinho
-  function handleRemoveProduct(productId) {
-    removeProduct(productId);
+  function handleRemoveProduct(product) {
+    removeProduct(product[0].id);
   }
   return (
     <Container>
@@ -102,7 +101,7 @@ export function Cart() {
                 <button
                   type="button"
                   data-testid="remove-product"
-                  onClick={() => handleRemoveProduct(product.id)}
+                  onClick={() => handleRemoveProduct(product)}
                 >
                   <MdDelete size={20} />
                 </button>

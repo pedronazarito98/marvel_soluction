@@ -34,6 +34,11 @@ export const DescriptionCard = styled.p`
   line-height: 1.25rem;
   color: #e6e9e9;
 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; //? Define quantas linhas
+  -webkit-box-orient: vertical;
   &.small {
     font-size: 0.875rem;
   }
@@ -47,11 +52,13 @@ export const Card = styled(Link)`
   background-color: #151515;
   border-radius: 0.25rem;
   padding: 2rem 1.5rem;
-  margin: 0.75rem;
+  margin: 0.75rem 0;
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
   border: 0.063rem solid #f2f8f9;
+
+  
 
   transition: background-color 1s;
 
@@ -84,5 +91,9 @@ export const Card = styled(Link)`
 
   &:hover:before {
     transform: scale(2.15);
+  }
+
+  @media (max-width: 768px) {
+    max-width: 15rem;
   }
 `;

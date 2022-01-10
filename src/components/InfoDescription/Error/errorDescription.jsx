@@ -1,5 +1,6 @@
 import { Container } from "./styles";
 import manopolaImg from "../../../assets/manopola-edit.png";
+
 export function ErrorDescription() {
   return (
     <Container>
