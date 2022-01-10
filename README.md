@@ -1,4 +1,5 @@
-<img src="exemplo-image.png" alt="exemplo imagem">
+<img src="./src/assets/readme/HomePAGE.png" alt="Home">
+<img src="./src/assets/readme/comicsPage.png" alt="Comics Page">
 
 # Marvel Soluction
 
