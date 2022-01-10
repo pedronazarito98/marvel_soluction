@@ -9,6 +9,7 @@ export const Container = styled.div`
   footer {
     margin-top: 1.875rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 
@@ -26,12 +27,20 @@ export const Container = styled.div`
         background: ${darken(0.06, "#7159c1")};
       }
     }
+
+    @media (max-width: 320px) {
+      justify-content: center;
+      button {
+        margin-bottom: 0.625rem;
+      }
+    }
   }
 `;
 
 export const ProductTable = styled.table`
   width: 100%;
   overflow-x: auto;
+
   thead th {
     color: #999;
     text-align: left;
@@ -94,6 +103,11 @@ export const ProductTable = styled.table`
         cursor: not-allowed;
       }
     }
+  }
+
+  @media (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 

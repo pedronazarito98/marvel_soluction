@@ -1,3 +1,4 @@
+import { Link as Navlink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Card = styled.div`
@@ -29,21 +30,7 @@ export const Content = styled.div`
   padding: 0.625rem;
   width: 100%;
   max-width: 14.375rem;
-  a {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: black;
-    transition: all 0.2s ease;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; //? Define quantas linhas
-    -webkit-box-orient: vertical;
-    &:hover {
-      color: gray;
-    }
-  }
+  position: relative;
 
   p {
     margin-top: 0.313rem;
@@ -57,5 +44,45 @@ export const Content = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 4; //? Define quantas linhas
     -webkit-box-orient: vertical;
+  }
+`;
+
+export const Link = styled(Navlink)`
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: black;
+  transition: all 0.2s ease;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; //? Define quantas linhas
+  -webkit-box-orient: vertical;
+
+  &:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+
+    font-size: 0.625rem;
+    background-color: #fea;
+    color: #000;
+    text-align: center;
+    border: 1px solid #000;
+    padding: 0.313rem;
+    transition: opacity 1s ease-in-out;
+
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 30%;
+  }
+
+  &:hover {
+    color: gray;
+    &:before {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 `;

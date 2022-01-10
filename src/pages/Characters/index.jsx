@@ -1,14 +1,15 @@
-import { MdExpandMore } from "react-icons/md";
 import { CardHq } from "../../components/Card/Hq";
-import { useComics } from "../../contexts/useComics";
-import { ShowMore } from "../Home/styles";
+import { Header } from "../../components/Header";
+import { ButtonShowMore } from "../../components/ShowMore";
+import { useComics } from "../../hooks/useComics";
 import { ContainerCharacters } from "./style";
 
 export function Characters() {
-  const { characters, handleMoreCharacters } = useComics();
-  console.log("characters: ", characters);
+  const { characters, handleMoreCharacters, isLoading } = useComics();
   return (
     <>
+      <Header namePage="Escolha seu personagem e encontre suas HQ's" />
+
       <ContainerCharacters>
         {characters.map((item) => {
           return (
@@ -18,16 +19,13 @@ export function Characters() {
                 key={item.id}
                 link={item.id}
                 title={item.name}
-                // price={item.price}
                 thumbnailPath={item.thumbnail.path}
                 thumbnailExtension={item.thumbnail.extension}
               />
             </>
           );
         })}
-        <ShowMore onClick={handleMoreCharacters}>
-          Veja mais <MdExpandMore />
-        </ShowMore>
+        <ButtonShowMore isLoading={isLoading} onClick={handleMoreCharacters} />
       </ContainerCharacters>
     </>
   );

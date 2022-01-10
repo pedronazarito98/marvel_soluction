@@ -2,47 +2,48 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 10px 0 30px 0;
-`;
-
-export const WrapperCard = styled.div`
-  /* max-width: 75rem; */
-  width: 100%;
-  display: flex;
-  /* flex-direction: row; */
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  margin: 0.313rem auto;
-  padding: 0.938rem;
-
-  ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    list-style: none;
-    flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 
-export const ShowMore = styled.button`
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 1.2rem;
-
+export const WrapperDirection = styled.section`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
 
-  transition: all 0.2s;
-  svg {
-    font-size: 1.25rem;
+  @media (max-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
   }
-  &:hover {
-    filter: brightness(0.9);
+`;
+
+export const TextDescription = styled.section`
+  padding: 10px 20px;
+  max-width: 500px;
+  h1 {
+    font-size: 2rem;
+    color: white;
+  }
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff99;
+  }
+`;
+
+export const WrapperImage = styled.div`
+  max-width: 500px;
+  img {
+    width: 100%;
+    max-width: 655px;
   }
 `;
