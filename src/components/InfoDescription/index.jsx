@@ -1,4 +1,4 @@
-import { useCart } from "../../contexts/useCart";
+import { useCart } from "../../hooks/useCart";
 import { FormatCurrency } from "../../utils/format";
 import { ButtonCart } from "../ButtonCart";
 import { ErrorDescription } from "./Error/errorDescription";
@@ -30,6 +30,7 @@ export function InfoDescription({
   function handleAddProduct(id) {
     addProduct(id);
   }
+  const isDisabled = price === 0 ? true : false;
   return (
     <>
       <TitleComics>{title}</TitleComics>
@@ -53,6 +54,7 @@ export function InfoDescription({
       </WrapperDescriptions>
       {typeInfo === "comics" && (
         <ButtonCart
+          isDisabled={isDisabled}
           onClick={() => handleAddProduct(productId)}
           valueProduct={cartItemsAmount[productId]}
         />

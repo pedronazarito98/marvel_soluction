@@ -9,6 +9,7 @@ export const Container = styled.div`
   footer {
     margin-top: 1.875rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 
@@ -24,6 +25,13 @@ export const Container = styled.div`
 
       &:hover {
         background: ${darken(0.06, "#7159c1")};
+      }
+    }
+
+    @media (max-width: 320px) {
+      justify-content: center;
+      button {
+        margin-bottom: 0.625rem;
       }
     }
   }

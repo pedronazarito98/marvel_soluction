@@ -22,12 +22,36 @@ export function CartProvider({ children }) {
         (product) => product[0].id === productId
       ); //verifica se o produto tem o Id igual
 
-      await sendRequest.getDetailsComics(productId); //faz a requisição do estoque de produtos.
+      const result = await sendRequest.getDetailsComics(productId); //faz a requisição do estoque de produtos.
 
+      // console.log("stock: ", result);
+      const stockAmount = result.amount; //quantidade que tem no estoque
       const currentAmount = productExists ? productExists.amount : 0; //produto atual no carrinho
       const amount = currentAmount + 1; //quantidade desejada
 
+      if (amount > stockAmount) {
+        toast('🦄 Wow so easy!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+        return;
+      } //quantidade desejada
+
       if (productExists) {
+        toast("🦄 Wow so easy!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         productExists.amount = amount; //atualiza produto
       } else {
         const result = await sendRequest.getDetailsComics(productId);
@@ -36,6 +60,7 @@ export function CartProvider({ children }) {
           ...result,
           amount: 1,
         };
+        toast.success("Produto adicionado");
 
         updatedCart.push(newProduct);
       }
@@ -51,10 +76,10 @@ export function CartProvider({ children }) {
     try {
       const updatedCart = [...cart];
       const productIndex = updatedCart.findIndex(
-        (product) => product.id === productId
+        (product) => product[0].id === productId
       );
-
       if (productIndex >= 0) {
+        toast.error("Erro na remoção do produto");
         updatedCart.splice(productIndex, 1);
         setCart(updatedCart);
         localStorage.setItem("@Marvel:cart", JSON.stringify(updatedCart));

@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
-
-import { Card, Content } from "./styles";
+import { Card, Content, Link } from "./styles";
 
 import { ButtonCart } from "../../ButtonCart";
 import { FormatCurrency } from "../../../utils/format";
+import { Link as LinkImage } from "react-router-dom";
 
 export function CardHq({
   thumbnailPath,
@@ -18,16 +17,18 @@ export function CardHq({
 }) {
   return (
     <Card key={key}>
-      <Link to={`/${typeLink}/` + link}>
+      <LinkImage to={`/${typeLink}/` + link}>
         <img
           src={`${thumbnailPath}.${thumbnailExtension}`}
           alt={title}
-          loading="eager"
+          loading="lazy"
         />
-      </Link>
+      </LinkImage>
       <Content>
-        <Link to={`/${typeLink}/` + link}>{title}</Link>
-        {price && <p> {FormatCurrency(price)}</p>}
+        <Link data-hover={title} to={`/${typeLink}/` + link}>
+          {title}
+        </Link>
+        {typeLink === "comics" && <p> {FormatCurrency(price)}</p>}
         {typeLink === "comics" && (
           <ButtonCart valueProduct={valueProduct} onClick={onClick} />
         )}

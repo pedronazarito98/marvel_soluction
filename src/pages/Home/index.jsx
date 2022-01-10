@@ -1,36 +1,26 @@
-import { MdExpandMore } from "react-icons/md";
-import { useCart } from "../../contexts/useCart";
+import {
+  Container,
+  TextDescription,
+  WrapperDirection,
+  WrapperImage,
+} from "./styles";
+import imgHome from "../../assets/blackPanther.svg";
+import { CardHome } from "../../components/Card/Home";
 
-import { Container, ShowMore, WrapperCard, WrapperDirection } from "./styles";
-import { CardHq } from "../../components/Card/Hq";
-import { useComics } from "../../contexts/useComics";
-import { CardHome } from "../../components/Card/Home/index";
-import { useParams } from "react-router-dom";
-import { ButtonShowMore } from "../../components/ShowMore";
-
-export function Home() {
-  const { comics, handleMore, isLoading } = useComics();
-  const { addProduct, cart } = useCart();
-
-  const cartItemsAmount = cart.reduce((sumAmount, item) => {
-    const newSumAmount = { ...sumAmount };
-    newSumAmount[item[0].id] = item.amount;
-
-    return newSumAmount;
-  }, {});
-
-  function handleAddProduct(id) {
-    addProduct(id);
-  }
-
+export function InitialPage() {
   return (
-    <>
-      <Container>
+    <Container>
+      <TextDescription>
+        <h1>Bem vindo(a) ao E-comics 📚 </h1>
+        <h2>
+          Encontre sua HQ favorita, ou encontre através do vasto número de
+          personagens e suas referentes HQ's
+        </h2>
         <WrapperDirection>
           <CardHome
-            title="Comics"
+            title="HQ's"
             description="Encontre suas HQ's favoritas"
-            redirectUrl="/"
+            redirectUrl="comics"
           />
           <CardHome
             title="Personagens"
@@ -38,27 +28,10 @@ export function Home() {
             redirectUrl="characters"
           />
         </WrapperDirection>
-        <WrapperCard>
-          {comics.map((item) => {
-            return (
-              <>
-                <CardHq
-                  typeLink="comics"
-                  key={item.id}
-                  link={item.id}
-                  title={item.title}
-                  price={item.price}
-                  thumbnailPath={item.thumbnail.path}
-                  thumbnailExtension={item.thumbnail.extension}
-                  onClick={() => handleAddProduct(item.id)}
-                  valueProduct={cartItemsAmount[item.id]}
-                />
-              </>
-            );
-          })}
-        </WrapperCard>
-        <ButtonShowMore isLoading={isLoading} onClick={handleMore} />
-      </Container>
-    </>
+      </TextDescription>
+      <WrapperImage>
+        <img src={imgHome} alt="" />
+      </WrapperImage>
+    </Container>
   );
 }
