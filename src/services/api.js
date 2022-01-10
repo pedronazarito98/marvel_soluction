@@ -1,6 +1,7 @@
 import axios from "axios";
 import md5 from "md5";
 
+//! Chaves disponiveis apenas para facilitar a visualização do projeto
 const privateKey = "d1cb10073488e9619adb40b6b35e96b24c0f878a";
 const apikey = "78f329625b25b7b8fecdcc346e7447d8";
 
