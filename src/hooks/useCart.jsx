@@ -24,7 +24,7 @@ export function CartProvider({ children }) {
 
       const result = await sendRequest.getDetailsComics(productId); //faz a requisição do estoque de produtos.
 
-      // console.log("stock: ", result);
+
       const stockAmount = result.amount; //quantidade que tem no estoque
       const currentAmount = productExists ? productExists.amount : 0; //produto atual no carrinho
       const amount = currentAmount + 1; //quantidade desejada
