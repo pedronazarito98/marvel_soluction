@@ -1,28 +1,15 @@
 import moment from "moment";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-import { sendRequest } from "../../services/sendRequest";
 
 import { Header } from "../../components/Header";
 import { Container, Content, ImageBook, Wrapper } from "./style";
 import { InfoDescription } from "../../components/InfoDescription";
+import { useDetails } from "../../hooks/useDetails";
 
 export function DetailComics() {
   const { id } = useParams();
-  const [detailsComics, setDetailsComics] = useState([]);
 
-  useEffect(() => {
-    async function getDetailsComics() {
-      try {
-        const results = await sendRequest.getDetailsComics(id);
-        setDetailsComics(results);
-      } catch (error) {
-        return error;
-      }
-    }
-    getDetailsComics();
-  }, [id]);
+  const { detailsComics } = useDetails(id);
 
   return (
     <>
@@ -36,7 +23,7 @@ export function DetailComics() {
           return (
             <>
               <Wrapper key={id}>
-                <ImageBook src={urlImg} alt={title} loading="lazy"/>
+                <ImageBook src={urlImg} alt={title} loading="lazy" />
 
                 <Content>
                   <InfoDescription

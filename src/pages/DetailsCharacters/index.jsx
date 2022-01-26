@@ -1,42 +1,17 @@
 import moment from "moment";
-import { useEffect, useState } from "react";
 
 import { Header } from "../../components/Header";
 import { Link, useParams } from "react-router-dom";
-import { sendRequest } from "../../services/sendRequest";
 
-import { CardComics, WrapperComics ,MoreComics} from "./styles";
+import { CardComics, WrapperComics, MoreComics } from "./styles";
 import { InfoDescription } from "../../components/InfoDescription";
 import { Container, Content, ImageBook, Wrapper } from "../DetailsComics/style";
+import { useDetails } from "../../hooks/useDetails";
 
 export function DetailsCharacters() {
   const { id } = useParams();
-  const [detailsCharacters, setDetailsCharacters] = useState([]);
-  const [comicsCharacters, setComicsCharacters] = useState([]);
 
-  useEffect(() => {
-    async function getDetailsCharacters() {
-      try {
-        const results = await sendRequest.getDetailsCharacters(id);
-        setDetailsCharacters(results);
-      } catch (error) {
-        return error;
-      }
-    }
-    getDetailsCharacters();
-  }, [id]);
-
-  useEffect(() => {
-    async function getComicsCharacters() {
-      try {
-        const results = await sendRequest.getComicsCharacters(id);
-        setComicsCharacters(results);
-      } catch (error) {
-        return error;
-      }
-    }
-    getComicsCharacters();
-  }, [id]);
+  const { detailsCharacters, comicsCharacters } = useDetails(id);
 
   return (
     <>

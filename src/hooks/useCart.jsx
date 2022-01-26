@@ -24,34 +24,15 @@ export function CartProvider({ children }) {
 
       const result = await sendRequest.getDetailsComics(productId); //faz a requisição do estoque de produtos.
 
-
       const stockAmount = result.amount; //quantidade que tem no estoque
       const currentAmount = productExists ? productExists.amount : 0; //produto atual no carrinho
       const amount = currentAmount + 1; //quantidade desejada
 
       if (amount > stockAmount) {
-        toast('🦄 Wow so easy!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          });
         return;
       } //quantidade desejada
 
       if (productExists) {
-        toast("🦄 Wow so easy!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
         productExists.amount = amount; //atualiza produto
       } else {
         const result = await sendRequest.getDetailsComics(productId);
